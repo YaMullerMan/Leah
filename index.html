@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jared & Garet's Friendship Analyzer</title>
+</head>
+<body>
+    <h1>Jared & Garet's Friendship Analyzer</h1>
+
+    <label for="jaredAction">What did Jared do?</label><br>
+    <input type="text" id="jaredAction"><br><br>
+
+    <label for="garetAction">What did Garet do?</label><br>
+    <input type="text" id="garetAction"><br><br>
+
+    <button onclick="checkVibes()">Analyze Vibes</button>
+
+    <p id="jaredResult"></p>
+    <p id="garetResult"></p>
+
+    <script>
+        function isGay(action) {
+            action = action.toLowerCase();
+            return (
+                action.includes("run through the woods baked together") ||
+                action.includes("held hands") ||
+                action.includes("meet for coffee") ||
+                action.includes("wear the same swim shorts") ||
+                action.includes("shower together") ||
+                action.includes("make sexual noises to eachother") ||
+                action.includes("look at each others pee pee")
+            );
+        }
+
+        function checkVibes() {
+            const jaredAction = document.getElementById("jaredAction").value;
+            const garetAction = document.getElementById("garetAction").value;
+
+            const jaredResult = isGay(jaredAction) ? "Jared might have a crush 🌈" : "Jared is chill 😎";
+            const garetResult = isGay(garetAction) ? "Garet is feeling the love 💖" : "Garet is just vibing 🎧";
+
+            document.getElementById("jaredResult").textContent = jaredResult;
+            document.getElementById("garetResult").textContent = garetResult;
+        }
+    </script>
+</body>
+</html>
